@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Optical Illusion</title>
+</head>
+<html>
+    <body style='background-color:black'>
+        <canvas id="myCanvas" width="8000" height="640"></canvas>
+        <script>
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+            context.lineWidth = 7;
+            context.strokeStyle = 'gray'
+            context.beginPath();
+            for(let x = 0; x < 28; x++){
+                context.moveTo(x * 40 - 304, 0);
+                context.lineTo(x * 40 + 20, 340);
+                context.moveTo(x * 40, 0);
+                context.lineTo(x * 40 - 324, 340);
+            }
+            context.stroke();
+
+            context.fillStyle = 'white';
+            for(let x = 0; x < 20; x++)
+                for(let y = 0; y < 9; y++) {
+                    context.beginPath();
+                    context.arc(8 + x * 40, y * 42 - 9, 3, 0, 2 * Math.PI);
+                    context.arc(28 + x * 40, y * 42 - 29, 3, 0, 2 * Math.PI);
+                    context.fill();
+                }
+        </script>
+    </body>
+</html>
